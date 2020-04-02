@@ -11,7 +11,8 @@
 class Queen : public Piece {
 public:
     void move() override;
-};
 
+    void print() override;
+};
 
 #endif //SZACHY_QUEEN_H

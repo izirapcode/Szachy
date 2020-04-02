@@ -10,8 +10,12 @@
 
 class Board {
 protected:
+    Piece* boardFields [8][8];
 public:
-
+    Board();
+    Piece * getBoardField(int x, int y);
+    void printBoard();
+    void setBoardField(Piece* piece, int x, int y);
 };
 
 

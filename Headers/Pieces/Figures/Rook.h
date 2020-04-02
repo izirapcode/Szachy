@@ -11,6 +11,9 @@
 class Rook : public Piece {
 public:
     void move() override;
+
+    void print() override;
+
 };
 
 

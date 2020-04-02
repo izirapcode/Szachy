@@ -1,6 +1,8 @@
 #include <iostream>
+#include "Headers/Board/Board.h"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    Board *board = new Board();
+    board->printBoard();
     return 0;
 }

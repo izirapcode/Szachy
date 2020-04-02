@@ -7,14 +7,10 @@
 #ifndef SZACHY_PIECE_H
 #define SZACHY_PIECE_H
 
-#endif //SZACHY_PIECE_H
-class Piece{
-protected:
-    Square square;
-public:
-    const Square &getSquare() const;
-
-    void setSquare(const Square &square);
-
+class Piece : public Square{
+    public:
     virtual void move() = 0;
+    virtual void print() = 0;
 };
+
+#endif //SZACHY_PIECE_H
