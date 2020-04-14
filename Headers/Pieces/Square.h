@@ -8,16 +8,21 @@
 
 class Square {
 protected:
-    int width;
-    int height;
+    int x;
+    int y;
+    char color;
 public:
-    int getWidth() const;
+    int getX() const;
 
-    void setWidth(int width);
+    void setX(int x);
 
-    int getHeight() const;
+    int getY() const;
 
-    void setHeight(int height);
+    void setY(int y);
+
+    char getColor() const;
+
+    void setColor(char color);
 };
 
 

@@ -4,8 +4,9 @@
 
 #include <iostream>
 #include "../../../Headers/Pieces/Figures/King.h"
+#include "../../../Headers/Board/Board.h"
 
-void King::move() {
+void King::move(Piece * (*array)[8][8]) {
 
 }
 

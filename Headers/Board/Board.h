@@ -9,13 +9,13 @@
 #include "../Pieces/Piece.h"
 
 class Board {
-protected:
-    Piece* boardFields [8][8];
 public:
-    Board();
+    Piece * boardFields[8][8];
+    void initialize();
     Piece * getBoardField(int x, int y);
     void printBoard();
-    void setBoardField(Piece* piece, int x, int y);
+    void setBoardField(Piece* piece);
+
 };
 
 

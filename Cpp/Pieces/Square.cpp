@@ -4,18 +4,26 @@
 
 #include "../../Headers/Pieces/Square.h"
 
-int Square::getWidth() const {
-    return width;
+int Square::getX() const {
+    return x;
 }
 
-void Square::setWidth(int width) {
-    Square::width = width;
+void Square::setX(int x) {
+    Square::x = x;
 }
 
-int Square::getHeight() const {
-    return height;
+int Square::getY() const {
+    return y;
 }
 
-void Square::setHeight(int height) {
-    Square::height = height;
+void Square::setY(int y) {
+    Square::y = y;
+}
+
+char Square::getColor() const {
+    return color;
+}
+
+void Square::setColor(char color) {
+    Square::color = color;
 }

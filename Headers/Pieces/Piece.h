@@ -4,12 +4,14 @@
 
 #include "Square.h"
 
+
 #ifndef SZACHY_PIECE_H
 #define SZACHY_PIECE_H
 
 class Piece : public Square{
-    public:
-    virtual void move() = 0;
+public:
+    Piece(int x,int y, char color);
+    virtual void move(Piece * (*array)[8][8]) = 0;
     virtual void print() = 0;
 };
 

@@ -10,8 +10,8 @@
 
 class Pawn : public Piece {
 public:
-    void move() override;
-
+    void move(Piece * (*array)[8][8]) override;
+    using Piece::Piece;
     void print() override;
 };
 

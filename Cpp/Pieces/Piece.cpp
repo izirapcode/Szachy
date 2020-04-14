@@ -3,5 +3,9 @@
 //
 
 #include "../../Headers/Pieces/Piece.h"
-#include "../../Headers/Pieces/Square.h"
 
+Piece::Piece(int x, int y,char color) {
+   setX(x);
+   setY(y);
+   setColor(color);
+}

@@ -11,39 +11,39 @@
 #include "../../Headers/Pieces/Figures/Queen.h"
 #include "../../Headers/Pieces/Figures/King.h"
 
-Board::Board() {
+void Board::initialize() {
 
     for (int x = 0; x < 8; x++)
         for(int y=0;y<8;y++)
-            setBoardField(nullptr,x,y);
+            boardFields[x][y] = nullptr;
 
-    setBoardField(new Rook(),0,0);
-    setBoardField(new Knight(),1,0);
-    setBoardField(new Bishop(),2,0);
-    setBoardField(new Queen(),3,0);
-    setBoardField(new King(),4,0);
-    setBoardField(new Bishop(),5,0);
-    setBoardField(new Knight(),6,0);
-    setBoardField(new Rook(),7,0);
+    setBoardField(new Rook(0,0,'b'));
+    setBoardField(new Knight(1,0,'b'));
+    setBoardField(new Bishop(2,0,'b'));
+    setBoardField(new Queen(3,0,'b'));
+    setBoardField(new King(4,0,'b'));
+    setBoardField(new Bishop(5,0,'b'));
+    setBoardField(new Knight(6,0,'b'));
+    setBoardField(new Rook(7,0,'b'));
 
-    setBoardField(new Rook(),0,7);
-    setBoardField(new Knight(),1,7);
-    setBoardField(new Bishop(),2,7);
-    setBoardField(new Queen(),3,7);
-    setBoardField(new King(),4,7);
-    setBoardField(new Bishop(),5,7);
-    setBoardField(new Knight(),6,7);
-    setBoardField(new Rook(),7,7);
+    setBoardField(new Rook(0,7,'w'));
+    setBoardField(new Knight(1,7,'w'));
+    setBoardField(new Bishop(2,7,'w'));
+    setBoardField(new Queen(3,7,'w'));
+    setBoardField(new King(4,7,'w'));
+    setBoardField(new Bishop(5,7,'w'));
+    setBoardField(new Knight(6,7,'w'));
+    setBoardField(new Rook(7,7,'w'));
 
     for (int i = 0; i < 8; i++)
     {
-        setBoardField(new Pawn(),i,1);
-        setBoardField(new Pawn(),i,6);
+        setBoardField(new Pawn(i,1,'b'));
+        setBoardField(new Pawn(i,6,'w'));
     }
 }
 
-void Board::setBoardField(Piece* piece, int x, int y) {
-    boardFields[x][y] = piece;
+void Board::setBoardField(Piece* piece) {
+    boardFields[piece->getX()][piece->getY()] = piece;
 }
 
 Piece * Board::getBoardField(int x, int y) {
@@ -51,6 +51,7 @@ Piece * Board::getBoardField(int x, int y) {
 }
 
 void Board::printBoard() {
+
     for (int x = 0; x < 8; x++){
         for(int y=0;y<8;y++){
             if(boardFields[x][y] != nullptr) {

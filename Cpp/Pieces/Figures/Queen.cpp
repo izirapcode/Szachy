@@ -4,8 +4,9 @@
 
 #include <iostream>
 #include "../../../Headers/Pieces/Figures/Queen.h"
+#include "../../../Headers/Board/Board.h"
 
-void Queen::move() {
+void Queen::move(Piece * (*array)[8][8]) {
 
 }
 

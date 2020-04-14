@@ -5,7 +5,7 @@
 #include <iostream>
 #include "../../../Headers/Pieces/Figures/Bishop.h"
 
-void Bishop::move() {
+void Bishop::move(Piece * (*array)[8][8]) {
 
 }
 

@@ -5,7 +5,7 @@
 #include <iostream>
 #include "../../../Headers/Pieces/Figures/Rook.h"
 
-void Rook::move() {
+void Rook::move(Piece * (*array)[8][8]) {
 
 }
 
