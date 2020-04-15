@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include "../../../Headers/Pieces/Figures/Pawn.h"
+#include "../../../Headers/Util/MoveUtil.h"
 
 
 void Pawn::print() {
@@ -12,9 +13,7 @@ void Pawn::print() {
 
 void Pawn::move(Piece * (*array)[8][8]) {
     int x,y;
-    std::cout<<"x,y"<<std::endl;
-    std::cin>>x;
-    std::cin>>y;
+    MoveUtil::setAndValidateMovePoint(&x,&y);
     if(!isMoveValid(array, x, y))
         return;
     (*array)[x][y] = (*array)[this->getX()][this->getY()];
