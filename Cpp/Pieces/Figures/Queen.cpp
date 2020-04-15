@@ -4,7 +4,6 @@
 
 #include <iostream>
 #include "../../../Headers/Pieces/Figures/Queen.h"
-#include "../../../Headers/Board/Board.h"
 
 void Queen::move(Piece * (*array)[8][8]) {
 
@@ -12,4 +11,8 @@ void Queen::move(Piece * (*array)[8][8]) {
 
 void Queen::print() {
     std::cout << "q";
+}
+
+bool Queen::isMoveValid(Piece *(*array)[8][8], int x, int y) {
+    return false;
 }

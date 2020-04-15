@@ -13,3 +13,7 @@ void King::move(Piece * (*array)[8][8]) {
 void King::print() {
     std::cout << "k";
 }
+
+bool King::isMoveValid(Piece *(*array)[8][8], int x, int y) {
+    return false;
+}

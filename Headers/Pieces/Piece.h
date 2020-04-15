@@ -13,6 +13,7 @@ public:
     Piece(int x,int y, char color);
     virtual void move(Piece * (*array)[8][8]) = 0;
     virtual void print() = 0;
+    virtual bool isMoveValid(Piece * (*array)[8][8],int x,int y) = 0;
 };
 
 #endif //SZACHY_PIECE_H
