@@ -43,6 +43,7 @@ bool Pawn::isMoveValid(Piece * (*array)[8][8],int x, int y) {
         }else if(this->getX() + 1 == x || this->getX() -1 == x){
             if( getY() + 1 == y )
                 if((*array)[x][y] != nullptr)
+                    if((*array)[x][y]->getColor() == 'w')
                     return true;
         }
     } else{
@@ -58,7 +59,9 @@ bool Pawn::isMoveValid(Piece * (*array)[8][8],int x, int y) {
         }else if(this->getX() + 1 == x || this->getX() -1 == x){
             if( getY() + 1 == y )
                 if((*array)[x][y] != nullptr)
+                    if((*array)[x][y]->getColor() == 'b')
                     return true;
         }
     }
+    return false;
 }
