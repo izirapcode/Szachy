@@ -2,6 +2,7 @@
 #include "Headers/Board/Board.h"
 #include "Headers/Pieces/Figures/Rook.h"
 #include "Headers/Pieces/Figures/Knight.h"
+#include "Headers/Util/MoveUtil.h"
 
 
 void process_2d_array_pointer(Piece* (*array)[2][3])
@@ -32,10 +33,9 @@ int main() {
                 board.printBoard();
                 break;
             case 2:
-                std::cout<<"x,y"<<std::endl;
-                std::cin>>x;
-                std::cin>>y;
-                board.getBoardField(x,y)->move(&board.boardFields);
+                MoveUtil::setAndValidateMovePoint(&x, &y);
+                if(board.boardFields[x][y] != nullptr)
+                    board.getBoardField(x,y)->move(&board.boardFields);
                 break;
             case 3:
                 return 0;

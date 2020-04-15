@@ -28,4 +28,5 @@ bool Knight::isMoveValid(Piece *(*array)[8][8], int x, int y) {
     if( getX() + 2 == x || getX() - 2 == x)
         if( getY() + 1 == y || getY() - 1 == y)
             return !MoveUtil::isFriendlyFire(array, x, y, color);
+    return false;
 }
