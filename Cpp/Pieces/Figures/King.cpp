@@ -4,10 +4,17 @@
 
 #include <iostream>
 #include "../../../Headers/Pieces/Figures/King.h"
-#include "../../../Headers/Board/Board.h"
+#include "../../../Headers/Util/MoveUtil.h"
 
 void King::move(Piece * (*array)[8][8]) {
-
+    int x,y;
+    MoveUtil::setAndValidateMovePoint(&x, &y);
+    if(!isMoveValid(array, x, y))
+        return;
+    (*array)[x][y] = (*array)[this->getX()][this->getY()];
+    (*array)[this->getX()][this->getY()] = nullptr;
+    setX(x);
+    setY(y);
 }
 
 void King::print() {
@@ -15,5 +22,7 @@ void King::print() {
 }
 
 bool King::isMoveValid(Piece *(*array)[8][8], int x, int y) {
-    return false;
+    if(getX() == x && getY() == y)
+        return false;
+    return abs(getX() - x) > 2 && abs(getY() - y) > 2;
 }
