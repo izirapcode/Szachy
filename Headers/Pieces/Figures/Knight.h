@@ -1,6 +1,6 @@
-//
-// Created by User on 02.04.2020.
-//
+/**
+ * Implementation of knight
+ */
 
 #ifndef SZACHY_KNIGHT_H
 #define SZACHY_KNIGHT_H

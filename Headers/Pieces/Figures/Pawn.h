@@ -1,6 +1,6 @@
-//
-// Created by User on 02.04.2020.
-//
+/**
+ * Implementation of pawn
+ */
 
 #ifndef SZACHY_PAWN_H
 #define SZACHY_PAWN_H

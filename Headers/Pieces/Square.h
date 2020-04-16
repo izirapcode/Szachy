@@ -1,6 +1,6 @@
-//
-// Created by User on 02.04.2020.
-//
+/**
+ * Inherited class for every piece
+ */
 
 #ifndef SZACHY_SQUARE_H
 #define SZACHY_SQUARE_H

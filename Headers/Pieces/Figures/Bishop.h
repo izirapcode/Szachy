@@ -1,6 +1,6 @@
-//
-// Created by User on 02.04.2020.
-//
+/**
+ * Implementation of bishop
+ */
 
 #ifndef SZACHY_BISHOP_H
 #define SZACHY_BISHOP_H

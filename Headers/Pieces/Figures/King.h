@@ -1,6 +1,6 @@
-//
-// Created by User on 02.04.2020.
-//
+/**
+ * Implementation of king
+ */
 
 #ifndef SZACHY_KING_H
 #define SZACHY_KING_H

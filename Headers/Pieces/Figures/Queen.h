@@ -1,6 +1,6 @@
-//
-// Created by User on 02.04.2020.
-//
+/**
+ * Implementation of queen
+ */
 
 #ifndef SZACHY_QUEEN_H
 #define SZACHY_QUEEN_H

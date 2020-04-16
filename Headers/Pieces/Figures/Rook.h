@@ -1,6 +1,6 @@
-//
-// Created by User on 02.04.2020.
-//
+/**
+ * Implementation of rook
+ */
 
 #ifndef SZACHY_ROOK_H
 #define SZACHY_ROOK_H

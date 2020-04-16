@@ -1,6 +1,6 @@
-//
-// Created by User on 15.04.2020.
-//
+/**
+ * Utility methods
+ */
 
 #ifndef SZACHY_MOVEUTIL_H
 #define SZACHY_MOVEUTIL_H
@@ -10,7 +10,16 @@
 
 class MoveUtil {
 public:
+    /// Setting and validating point of board (8x8)
+    /// \param x referance of x coordinate
+    /// \param y referance of x coordinate
     static void setAndValidateMovePoint(int* x, int* y);
+    ///
+    /// \param array Piece * matrix
+    /// \param x 1st coordinate of field
+    /// \param y 2nd coordinate of field
+    /// \param color color of figure
+    /// \return true there is figure in same color at x,y array matrix false otherwise
     static bool isFriendlyFire(Piece * (*array)[8][8], int x, int y, char color);
 };
 
