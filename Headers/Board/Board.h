@@ -7,6 +7,7 @@
 
 
 #include "../Pieces/Piece.h"
+#include <vector>
 
 class Board {
 public:
@@ -21,7 +22,7 @@ public:
     Piece * getBoardField(int x, int y);
 
     /// Console print of board, 0 as empty field
-    void printBoard();
+    std::vector<std::vector<char>> printBoard();
 
     /// Setting board field with figure
     /// \param piece figure

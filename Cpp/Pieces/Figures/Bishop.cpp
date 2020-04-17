@@ -18,8 +18,8 @@ void Bishop::move(Piece * (*array)[8][8]) {
     setY(y);
 }
 
-void Bishop::print() {
-    std::cout << "b";
+char Bishop::print() {
+    return 'b';
 }
 
 bool Bishop::isMoveValid(Piece *(*array)[8][8], int x, int y) {

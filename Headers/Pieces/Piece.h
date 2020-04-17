@@ -25,7 +25,7 @@ public:
     /// 'b' - bishop
     /// 'q' - queen
     /// 'k' - king
-    virtual void print() = 0;
+    virtual char print() = 0;
 
     ///
     /// \param array matrix of Piece* used as chess board

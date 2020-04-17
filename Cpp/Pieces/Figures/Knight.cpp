@@ -17,8 +17,8 @@ void Knight::move(Piece * (*array)[8][8]) {
     setY(y);
 }
 
-void Knight::print() {
-    std::cout << "n";
+char Knight::print() {
+    return 'n';
 }
 
 bool Knight::isMoveValid(Piece *(*array)[8][8], int x, int y) {

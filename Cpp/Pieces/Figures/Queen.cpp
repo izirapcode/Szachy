@@ -18,8 +18,8 @@ void Queen::move(Piece * (*array)[8][8]) {
     setY(y);
 }
 
-void Queen::print() {
-    std::cout << "q";
+char Queen::print() {
+    return 'q';
 }
 
 bool Queen::isMoveValid(Piece *(*array)[8][8], int x, int y) {

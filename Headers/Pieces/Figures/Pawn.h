@@ -14,7 +14,7 @@ private:
 public:
     void move(Piece * (*array)[8][8]) override;
     using Piece::Piece;
-    void print() override;
+    char print() override;
     bool isMoveValid(Piece * (*array)[8][8], int x, int y) override;
 };
 

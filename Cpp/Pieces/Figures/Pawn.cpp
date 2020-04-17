@@ -7,8 +7,8 @@
 #include "../../../Headers/Util/MoveUtil.h"
 
 
-void Pawn::print() {
-  std::cout << "p";
+char Pawn::print() {
+    return 'p';
 }
 
 void Pawn::move(Piece * (*array)[8][8]) {

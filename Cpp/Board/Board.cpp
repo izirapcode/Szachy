@@ -2,7 +2,7 @@
 // Created by User on 02.04.2020.
 //
 
-#include <iostream>
+#include <vector>
 #include "../../Headers/Board/Board.h"
 #include "../../Headers/Pieces/Figures/Pawn.h"
 #include "../../Headers/Pieces/Figures/Rook.h"
@@ -50,17 +50,19 @@ Piece * Board::getBoardField(int x, int y) {
     return boardFields[x][y];
 }
 
-void Board::printBoard() {
+std::vector<std::vector<char>> Board::printBoard() {
 
+    std::vector<std::vector<char> > vec(8);
     for (int x = 0; x < 8; x++){
+        vec[x] = std::vector<char>(8);
         for(int y=0;y<8;y++){
             if(boardFields[x][y] != nullptr) {
-                boardFields[x][y]->print();
+                vec[x][y] = boardFields[x][y]->print();
             }
             else
-                std::cout << "0";
+                vec[x][y] = '0';
         }
-            std::cout<<std::endl;
     }
 
+    return vec;
 }

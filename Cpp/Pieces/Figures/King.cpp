@@ -17,8 +17,8 @@ void King::move(Piece * (*array)[8][8]) {
     setY(y);
 }
 
-void King::print() {
-    std::cout << "k";
+char King::print() {
+    return 'k';
 }
 
 bool King::isMoveValid(Piece *(*array)[8][8], int x, int y) {

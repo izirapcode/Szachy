@@ -17,8 +17,8 @@ void Rook::move(Piece * (*array)[8][8]) {
     setY(y);
 }
 
-void Rook::print() {
-    std::cout << "r";
+char Rook::print() {
+    return 'r';
 }
 
 bool Rook::isMoveValid(Piece *(*array)[8][8], int x, int y) {
