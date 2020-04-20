@@ -1,6 +1,7 @@
 /**
  * Interface for every chess figure
  */
+#include <vector>
 #include "Square.h"
 
 
@@ -16,7 +17,7 @@ public:
     Piece(int x,int y, char color);
     /// Move of figure
     /// \param array matrix of Piece* used as chess board
-    virtual void move(Piece * (*array)[8][8]) = 0;
+    virtual void move(std::vector<std::vector<Piece *>>) = 0;
 
     /// Figure print
     /// 'p' - pawn
@@ -32,7 +33,7 @@ public:
     /// \param x 1st coordinate of new position
     /// \param y 2nd coordinate of new position
     /// \return whether move is valid
-    virtual bool isMoveValid(Piece * (*array)[8][8],int x,int y) = 0;
+    virtual bool isMoveValid(std::vector<std::vector<Piece *>> array, int x, int y) = 0;
 };
 
 #endif //SZACHY_PIECE_H

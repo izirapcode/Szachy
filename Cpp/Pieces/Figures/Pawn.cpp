@@ -11,13 +11,13 @@ void Pawn::print() {
   std::cout << "p";
 }
 
-void Pawn::move(Piece * (*array)[8][8]) {
+void Pawn::move(std::vector<std::vector<Piece *>> array) {
     int x,y;
     MoveUtil::setAndValidateMovePoint(&x,&y);
     if(!isMoveValid(array, x, y))
         return;
-    (*array)[x][y] = (*array)[this->getX()][this->getY()];
-    (*array)[this->getX()][this->getY()] = nullptr;
+    array[x][y] = array[this->getX()][this->getY()];
+    array[this->getX()][this->getY()] = nullptr;
     setX(x);
     setY(y);
 }
@@ -28,37 +28,37 @@ bool Pawn::isFirstMove() {
     return isBlackFirstMove || isWhiteFirstMove;
 }
 
-bool Pawn::isMoveValid(Piece * (*array)[8][8],int x, int y) {
+bool Pawn::isMoveValid(std::vector<std::vector<Piece *>> array, int x, int y) {
     if(this->getColor() == 'b'){
         if(isFirstMove()){
-            if(this->getY() +2 == y && this->getX() == x)
-                if( (*array)[x][getY() + 1] == nullptr && (*array)[x][getY() + 2] == nullptr )
+            if(this->getX() +2 == x && this->getY() == y)
+                if( array[y][getX() + 1] == nullptr && array[y][getX() + 2] == nullptr )
                     return true;
         }
-        if(this->getX() == x){
-            if( getY() + 1 == y )
-                if((*array)[x][y] == nullptr)
+        if(this->getY() == y){
+            if( getX() + 1 == x )
+                if(array[x][y] == nullptr)
                     return true;
-        }else if(this->getX() + 1 == x || this->getX() -1 == x){
-            if( getY() + 1 == y )
-                if((*array)[x][y] != nullptr)
-                    if((*array)[x][y]->getColor() == 'w')
+        }else if(this->getY() + 1 == y || this->getY() -1 == y){
+            if( getX() + 1 == x )
+                if(array[x][y] != nullptr)
+                    if(array[x][y]->getColor() == 'w')
                     return true;
         }
     } else{
         if(isFirstMove()){
-            if(this->getY() -2 == y && this->getX() == x)
-                if( (*array)[x][getY() -1] == nullptr && (*array)[x][getY() -1] == nullptr )
+            if(this->getX() -2 == x && this->getY() == y)
+                if( array[getX() -1][y] == nullptr && array[getX() -1 ][y] == nullptr )
                     return true;
         }
-        if(this->getX() == x){
-            if( getY() -1  == y )
-                if((*array)[x][y] == nullptr)
+        if(this->getY() == y){
+            if( getX() -1  == x )
+                if(array[x][y] == nullptr)
                     return true;
-        }else if(this->getX() + 1 == x || this->getX() -1 == x){
-            if( getY() + 1 == y )
-                if((*array)[x][y] != nullptr)
-                    if((*array)[x][y]->getColor() == 'b')
+        }else if(this->getY() + 1 == y || this->getY() -1 == y){
+            if( getX() + 1 == x )
+                if(array[x][y] != nullptr)
+                    if(array[x][y]->getColor() == 'b')
                     return true;
         }
     }

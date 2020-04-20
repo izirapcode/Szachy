@@ -4,19 +4,6 @@
 #include "Headers/Pieces/Figures/Knight.h"
 #include "Headers/Util/MoveUtil.h"
 
-
-void process_2d_array_pointer(Piece* (*array)[2][3])
-{
-    std::cout << __func__ << std::endl;
-    for (size_t i = 0; i < 2; ++i)
-    {
-        std::cout << i << ": ";
-        for (size_t j = 0; j < 3; ++j)
-            (*array)[i][j]->print();
-        std::cout << std::endl;
-    }
-}
-
 int main() {
 
     int choice,x=0,y=0;
@@ -34,8 +21,8 @@ int main() {
                 break;
             case 2:
                 MoveUtil::setAndValidateMovePoint(&x, &y);
-                if(board.boardFields[x][y] != nullptr)
-                    board.getBoardField(x,y)->move(&board.boardFields);
+                if(board.getBoardField(x,y) != nullptr)
+                    board.getBoardField(x,y)->move(board.getBoardFields());
                 break;
             case 3:
                 return 0;

@@ -13,32 +13,37 @@
 
 void Board::initialize() {
 
-    for (int x = 0; x < 8; x++)
-        for(int y=0;y<8;y++)
-            boardFields[x][y] = nullptr;
+    for (int x = 0; x < 8; x++) {
+        std::vector<Piece *> v1;
+        for (int y = 0; y < 8; y++)
+        {
+            v1.push_back(nullptr);
+        }
+        boardFields.push_back(v1);
+    }
 
     setBoardField(new Rook(0,0,'b'));
-    setBoardField(new Knight(1,0,'b'));
-    setBoardField(new Bishop(2,0,'b'));
-    setBoardField(new Queen(3,0,'b'));
-    setBoardField(new King(4,0,'b'));
-    setBoardField(new Bishop(5,0,'b'));
-    setBoardField(new Knight(6,0,'b'));
-    setBoardField(new Rook(7,0,'b'));
+    setBoardField(new Knight(0,1,'b'));
+    setBoardField(new Bishop(0,2,'b'));
+    setBoardField(new Queen(0,3,'b'));
+    setBoardField(new King(0,4,'b'));
+    setBoardField(new Bishop(0,5,'b'));
+    setBoardField(new Knight(0,6,'b'));
+    setBoardField(new Rook(0,7,'b'));
 
-    setBoardField(new Rook(0,7,'w'));
-    setBoardField(new Knight(1,7,'w'));
-    setBoardField(new Bishop(2,7,'w'));
-    setBoardField(new Queen(3,7,'w'));
-    setBoardField(new King(4,7,'w'));
-    setBoardField(new Bishop(5,7,'w'));
-    setBoardField(new Knight(6,7,'w'));
+    setBoardField(new Rook(7,0,'w'));
+    setBoardField(new Knight(7,1,'w'));
+    setBoardField(new Bishop(7,2,'w'));
+    setBoardField(new Queen(7,3,'w'));
+    setBoardField(new King(7,4,'w'));
+    setBoardField(new Bishop(7,5,'w'));
+    setBoardField(new Knight(7,6,'w'));
     setBoardField(new Rook(7,7,'w'));
 
     for (int i = 0; i < 8; i++)
     {
-        setBoardField(new Pawn(i,1,'b'));
-        setBoardField(new Pawn(i,6,'w'));
+        setBoardField(new Pawn(1,i,'b'));
+        setBoardField(new Pawn(6,i,'w'));
     }
 }
 
@@ -63,4 +68,12 @@ void Board::printBoard() {
             std::cout<<std::endl;
     }
 
+}
+
+const std::vector<std::vector<Piece *>> &Board::getBoardFields() const {
+    return boardFields;
+}
+
+void Board::setBoardFields(const std::vector<std::vector<Piece *>> &boardFields) {
+    Board::boardFields = boardFields;
 }

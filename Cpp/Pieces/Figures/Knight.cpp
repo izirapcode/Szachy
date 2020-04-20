@@ -6,13 +6,13 @@
 #include "../../../Headers/Pieces/Figures/Knight.h"
 #include "../../../Headers/Util/MoveUtil.h"
 
-void Knight::move(Piece * (*array)[8][8]) {
+void Knight::move(std::vector<std::vector<Piece *>> array) {
     int x,y;
     MoveUtil::setAndValidateMovePoint(&x,&y);
     if(!isMoveValid(array, x, y))
         return;
-    (*array)[x][y] = (*array)[this->getX()][this->getY()];
-    (*array)[this->getX()][this->getY()] = nullptr;
+    array[x][y] = array[this->getX()][this->getY()];
+    array[this->getX()][this->getY()] = nullptr;
     setX(x);
     setY(y);
 }
@@ -21,7 +21,7 @@ void Knight::print() {
     std::cout << "n";
 }
 
-bool Knight::isMoveValid(Piece *(*array)[8][8], int x, int y) {
+bool Knight::isMoveValid(std::vector<std::vector<Piece *>> array, int x, int y) {
     if( getX() + 1 == x || getX() - 1 == x)
         if( getY() + 2 == y || getY() - 2 == y)
             return !MoveUtil::isFriendlyFire(array, x, y, color);

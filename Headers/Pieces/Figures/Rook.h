@@ -11,15 +11,15 @@
 
 class Rook : public Piece {
 private:
-    bool moveLeft(Piece *(*array)[8][8], int x, int y);
-    bool moveRight(Piece *(*array)[8][8], int x, int y);
-    bool moveDown(Piece *(*array)[8][8], int x, int y);
-    bool moveUp(Piece *(*array)[8][8], int x, int y);
+    bool moveLeft(std::vector<std::vector<Piece *>> array, int x, int y);
+    bool moveRight(std::vector<std::vector<Piece *>> array, int x, int y);
+    bool moveDown(std::vector<std::vector<Piece *>> array, int x, int y);
+    bool moveUp(std::vector<std::vector<Piece *>> array, int x, int y);
 public:
-    void move(Piece * (*array)[8][8]) override;
+    void move(std::vector<std::vector<Piece *>> array) override;
     using Piece::Piece;
     void print() override;
-    bool isMoveValid(Piece * (*array)[8][8], int x, int y) override;
+    bool isMoveValid(std::vector<std::vector<Piece *>> array, int x, int y) override;
 
 };
 

@@ -11,10 +11,10 @@
 
 class King : public Piece {
 public:
-    void move(Piece * (*array)[8][8]) override;
+    void move(std::vector<std::vector<Piece *>> array) override;
     using Piece::Piece;
     void print() override;
-    bool isMoveValid(Piece * (*array)[8][8], int x, int y) override;
+    bool isMoveValid(std::vector<std::vector<Piece *>> array, int x, int y) override;
 };
 
 #endif //SZACHY_KING_H

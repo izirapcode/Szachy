@@ -7,13 +7,13 @@
 #include "../../../Headers/Pieces/Figures/Bishop.h"
 #include "../../../Headers/Util/MoveUtil.h"
 
-void Bishop::move(Piece * (*array)[8][8]) {
+void Bishop::move(std::vector<std::vector<Piece *>> array) {
     int x,y;
     MoveUtil::setAndValidateMovePoint(&x,&y);
     if(!isMoveValid(array, x, y))
         return;
-    (*array)[x][y] = (*array)[this->getX()][this->getY()];
-    (*array)[this->getX()][this->getY()] = nullptr;
+    array[x][y] = array[this->getX()][this->getY()];
+    array[this->getX()][this->getY()] = nullptr;
     setX(x);
     setY(y);
 }
@@ -22,7 +22,7 @@ void Bishop::print() {
     std::cout << "b";
 }
 
-bool Bishop::isMoveValid(Piece *(*array)[8][8], int x, int y) {
+bool Bishop::isMoveValid(std::vector<std::vector<Piece *>> array, int x, int y) {
     int xModif=0,yModif=0;
     int xTemp = getX(), yTemp = getY();
     std::vector<Square> squares;
@@ -56,7 +56,7 @@ bool Bishop::isMoveValid(Piece *(*array)[8][8], int x, int y) {
         return false;
 
     for (auto & element : squares) {
-        if ((*array)[element.getX()][element.getY()] != nullptr)
+        if (array[element.getX()][element.getY()] != nullptr)
             return false;
     }
     return !MoveUtil::isFriendlyFire(array, x, y, color);

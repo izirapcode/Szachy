@@ -5,13 +5,18 @@
 #ifndef SZACHY_BOARD_H
 #define SZACHY_BOARD_H
 
-
+#include <vector>
 #include "../Pieces/Piece.h"
 
 class Board {
-public:
+private:
     /// Board
-    Piece * boardFields[8][8];
+    std::vector<std::vector< Piece*> > boardFields;
+public:
+    const std::vector<std::vector<Piece *>> &getBoardFields() const;
+
+    void setBoardFields(const std::vector<std::vector<Piece *>> &boardFields);
+
     /// Initialization of starting layout of chess board
     void initialize();
     ///

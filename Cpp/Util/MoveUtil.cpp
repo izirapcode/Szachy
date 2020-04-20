@@ -8,14 +8,20 @@
 
 void MoveUtil::setAndValidateMovePoint(int* x, int* y) {
     while(true) {
-        std::cout << "x,y" << std::endl;
+        char letter;
+        char letters[] = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
+        std::cout << "y,x" << std::endl;
+        std::cin >> letter;
         std::cin >> *x;
-        std::cin >> *y;
+        *x = *x-1;
+        for(int i =0; i<8;i++)
+            if(letters[i] == letter)
+                *y = i;
         if( ( *x >= 0 && *x <= 7 ) && ( *y >= 0 && *y <= 7 ) )
             return;
     }
 }
 
-bool MoveUtil::isFriendlyFire(Piece * (*array)[8][8], int x, int y, char color) {
-    return (*array)[x][y] != nullptr && (*array)[x][y]->getColor() == color;
+bool MoveUtil::isFriendlyFire(std::vector<std::vector<Piece *>> array, int x, int y, char color) {
+    return array[x][y] != nullptr && array[x][y]->getColor() == color;
 }

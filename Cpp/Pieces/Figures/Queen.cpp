@@ -7,13 +7,13 @@
 #include "../../../Headers/Pieces/Figures/Queen.h"
 #include "../../../Headers/Util/MoveUtil.h"
 
-void Queen::move(Piece * (*array)[8][8]) {
+void Queen::move(std::vector<std::vector<Piece *>> array) {
     int x,y;
     MoveUtil::setAndValidateMovePoint(&x,&y);
     if(!isMoveValid(array, x, y))
         return;
-    (*array)[x][y] = (*array)[this->getX()][this->getY()];
-    (*array)[this->getX()][this->getY()] = nullptr;
+    array[x][y] = array[this->getX()][this->getY()];
+    array[this->getX()][this->getY()] = nullptr;
     setX(x);
     setY(y);
 }
@@ -22,7 +22,7 @@ void Queen::print() {
     std::cout << "q";
 }
 
-bool Queen::isMoveValid(Piece *(*array)[8][8], int x, int y) {
+bool Queen::isMoveValid(std::vector<std::vector<Piece *>> array, int x, int y) {
     if( getX() == x){
         if( getY() < y)
             return moveRight(array, x, y);
@@ -38,39 +38,39 @@ bool Queen::isMoveValid(Piece *(*array)[8][8], int x, int y) {
 }
 
 
-bool Queen::moveLeft(Piece *(*array)[8][8], int x, int y) {
+bool Queen::moveLeft(std::vector<std::vector<Piece *>> array, int x, int y) {
     for(int i=this->getY() -1; i > y; i--) {
-        if ((*array)[x][i] != nullptr)
+        if (array[x][i] != nullptr)
             return false;
     }
     return !MoveUtil::isFriendlyFire(array, x, y, color);
 }
 
-bool Queen::moveRight(Piece *(*array)[8][8], int x, int y) {
+bool Queen::moveRight(std::vector<std::vector<Piece *>> array, int x, int y) {
     for(int i=this->getY() + 1; i < y; i++) {
-        if ((*array)[x][i] != nullptr)
+        if (array[x][i] != nullptr)
             return false;
     }
     return !MoveUtil::isFriendlyFire(array, x, y, color);
 }
 
-bool Queen::moveUp(Piece *(*array)[8][8], int x, int y) {
+bool Queen::moveUp(std::vector<std::vector<Piece *>> array, int x, int y) {
     for(int i=this->getX() -1; i > x; i--) {
-        if ((*array)[i][y] != nullptr)
+        if (array[i][y] != nullptr)
             return false;
     }
     return !MoveUtil::isFriendlyFire(array, x, y, color);
 }
 
-bool Queen::moveDown(Piece *(*array)[8][8], int x, int y) {
+bool Queen::moveDown(std::vector<std::vector<Piece *>> array, int x, int y) {
     for(int i=this->getX() + 1; i < x; i++) {
-        if ((*array)[i][y] != nullptr)
+        if (array[i][y] != nullptr)
             return false;
     }
     return !MoveUtil::isFriendlyFire(array, x, y, color);
 }
 
-bool Queen::moveLikeBishop(Piece *(*array)[8][8], int x, int y) {
+bool Queen::moveLikeBishop(std::vector<std::vector<Piece *>> array, int x, int y) {
     int xModif=0,yModif=0;
     int xTemp = getX(), yTemp = getY();
     std::vector<Square> squares;
@@ -102,7 +102,7 @@ bool Queen::moveLikeBishop(Piece *(*array)[8][8], int x, int y) {
         return false;
 
     for (auto & element : squares) {
-        if ((*array)[element.getX()][element.getY()] != nullptr)
+        if (array[element.getX()][element.getY()] != nullptr)
             return false;
     }
     return !MoveUtil::isFriendlyFire(array, x, y, color);

@@ -20,7 +20,7 @@ public:
     /// \param y 2nd coordinate of field
     /// \param color color of figure
     /// \return true there is figure in same color at x,y array matrix false otherwise
-    static bool isFriendlyFire(Piece * (*array)[8][8], int x, int y, char color);
+    static bool isFriendlyFire(std::vector<std::vector<Piece *>> array, int x, int y, char color);
 };
 
 
